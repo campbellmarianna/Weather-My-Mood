@@ -7,13 +7,14 @@ Input:
 Output:
 'clear sky'
 """
+import os
 from flask import Flask, render_template, request
 import requests
 
 
 #Create the Flask weather app and access config file
 app = Flask(__name__)
-app.config.from_pyfile('config.cfg')
+api_key = os.environ.get('API_KEY', None)
 
 # Necessary variables
 moods = ['Extremely Happy', 'Cheerful', 'Whimsical', 'Humorous',
@@ -22,10 +23,6 @@ mood_and_weather = {}
 weather_description_data = []
 
 # Helper functions
-def get_api_key():
-    """Return API KEY."""
-    return app.config['API_KEY']
-
 def get_weather(api_key, city):
     """Return weather based on city ID."""
     url = "https://api.openweathermap.org/data/2.5/forecast?id={}&appid={}".format(city, api_key)
@@ -65,7 +62,6 @@ def homepage():
     """
     if request.method == 'POST':
         location = 6058560
-        api_key = get_api_key()
         weather = get_weather(api_key, location)
         weather_description_data = get_weather_description(weather)
         set_mood_to_weather_description(weather_description_data)
