@@ -17,8 +17,8 @@ cd Weather-My-Mood
 
 Create a virtualenv and activate it::
 ```sh
-    python3 -m venv venv
-    . venv/bin/activate
+python3 -m venv venv
+source venv/bin/activate
 ```
 Install requirements and run
 ```sh
