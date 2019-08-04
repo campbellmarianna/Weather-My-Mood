@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Mood List{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h3>Type in your mood based on the list below and you will get the weather
+    associated with your mood. </h3>
+<ol>
+    <li>Extremely Happy</li>
+    <li>Cheerful</li>
+    <li>Whimsical</li>
+    <li>Humorous</li>
+    <li>Reflective</li>
+    <li>Apathetic</li>
+    <li>Gloomy</li>
+    <li>Frustrated</li>
+    <li>Annoyed</li>
+    <li>Angry</li>
+</ol>
+<form method="post">
+    <input type="text" name="mood">
+    <button type="submit">Submit</button>
+</form>
+<p>{{message}}</p>
+{% endblock %}

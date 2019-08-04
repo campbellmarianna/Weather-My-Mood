@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Results{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h3>The corresponding weather for your mood is {{weather}} </h3>
+{% endblock %}
